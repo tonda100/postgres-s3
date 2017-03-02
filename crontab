@@ -1,0 +1,4 @@
+15 0 1 * * root . /root/project_env.sh; /opt/dbbackup.sh month >> /var/log/cron.log 2>&1
+30 0 * * * root . /root/project_env.sh; /opt/dbbackup.sh day >> /var/log/cron.log 2>&1
+45 * * * * root . /root/project_env.sh; /opt/dbbackup.sh hour >> /var/log/cron.log 2>&1
+# An empty line is required at the end of this file for a valid cron file.
