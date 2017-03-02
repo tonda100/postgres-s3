@@ -34,7 +34,8 @@ When starting the database with backup feature on you have to provide credential
 * **S3REGION** - region where the backup will be stored default value is us-east-1 
 
 Run command will looks like 
- `docker run -d --name db -p 5432:5432 -e AWS_KEY=access_key -e AWS_SECRET=secret_key -e S3BUCKET=s3://com-yourcompany/dbbackup/ -e POSTGRES_USER=myapp -e POSTGRES_PASSWORD=my-password tonda100/postgres-s3`
+
+`docker run -d --name db -p 5432:5432 -e AWS_KEY=access_key -e AWS_SECRET=secret_key -e S3BUCKET=s3://com-yourcompany/dbbackup/ -e POSTGRES_USER=myapp -e POSTGRES_PASSWORD=my-password tonda100/postgres-s3`
 
 If the AWS_KEY, AWS_SECRET or S3BUCKET will not be set. The image will works like ordinary postgres docker image.
 
