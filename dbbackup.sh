@@ -9,6 +9,6 @@ BF=/tmp/$POSTGRES_USER-db-$(date +%Y%m%d%H%M%S).tar.gz
 pg_dump --username=postgres --no-password --format=tar --encoding=UTF8 $POSTGRES_USER > $BF
 
 echo "$(date) Uploading into AWS S3 $BF"
-s3cmd put $BF --access_key=$AWS_KEY --secret_key=$AWS_SECRET --storage-class=STANDARD_IA --encrypt --region=$S3REGION $S3BUCKET$1
+s3cmd put $BF --access_key=$AWS_KEY --secret_key=$AWS_SECRET --storage-class=STANDARD_IA --server-side-encryption --region=$S3REGION $S3BUCKET$1/
 
 rm $BF

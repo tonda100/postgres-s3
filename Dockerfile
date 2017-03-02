@@ -9,7 +9,10 @@ ENV S3REGION=us-east-1
 ENV TZ=Europe/Prague
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apt-get update && apt-get -y install s3cmd cron
+RUN apt-get update && apt-get install -y wget python-setuptools
+RUN wget http://ufpr.dl.sourceforge.net/project/s3tools/s3cmd/1.6.1/s3cmd-1.6.1.tar.gz
+RUN tar xzf s3cmd-1.6.1.tar.gz
+RUN cd s3cmd-1.6.1 && python setup.py install
 
 ADD dbbackup.sh /opt
 RUN chmod 755 /opt/dbbackup.sh
